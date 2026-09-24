@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPMB Online | SD Negeri Bangunjiwo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('sdnb-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+ 
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><img src="logo-sdn.jpeg" alt="Logo SD Negeri Bangunjiwo"></div>
+        <div class="brand-text">SD NEGERI BANGUNJIWO<small>Tegalrejo, Bangunjiwo, Kasihan, Bantul, Daerah Istimewa Yogyakarta</small></div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-item">Tentang <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+            <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+            <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="nav-item">Program Sekolah <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="program-1.html">📘 Program Akademik Unggulan</a>
+            <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+          </div>
+        </li>
+        <li><a href="prestasi.html" class="nav-item">Prestasi</a></li>
+        <li><a href="berita.html" class="nav-item">Berita</a></li>
+        <li><a href="spmb.html" class="nav-item active">SPMB</a></li>
+      </ul>
+      <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti mode gelap/terang" title="Ganti mode gelap/terang">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+    </div>
+    <nav id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Beranda</a>
+      <button type="button" class="mobile-dropdown-toggle">Tentang <span>▾</span></button>
+      <div class="mobile-submenu">
+        <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+        <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+      </div>
+      <button type="button" class="mobile-dropdown-toggle">Program Sekolah <span>▾</span></button>
+      <div class="mobile-submenu">
+        <a href="program-1.html">📘 Program Akademik Unggulan</a>
+        <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+      </div>
+      <a href="prestasi.html">Prestasi</a>
+      <a href="berita.html">Berita</a>
+      <a href="spmb.html">SPMB</a>
+    </nav>
+  </header>
+ 
+  <section class="page-hero">
+    <div class="container">
+      <h1>📝 SPMB Online</h1>
+      <p>Seleksi Penerimaan Murid Baru SD Negeri Bangunjiwo — Tahun Ajaran 2026/2027</p>
+    </div>
+  </section>
+ 
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+ 
+      <!-- ⚠️ GANTI seluruh info di bawah sesuai jadwal & syarat resmi sekolah -->
+      <div class="info-box reveal">
+        <h3 style="margin-top:0;">📅 Jadwal Pendaftaran</h3>
+        <p><strong>Gelombang 1:</strong> 2 – 20 Juni 2026<br>
+        <strong>Gelombang 2 (jika kuota belum penuh):</strong> 1 – 10 Juli 2026</p>
+ 
+        <h3>🎒 Kuota Daya Tampung</h3>
+        <p>2 rombongan belajar × 28 siswa = <strong>56 siswa baru</strong></p>
+ 
+        <h3>📋 Syarat Pendaftaran</h3>
+        <ul>
+          <li>Calon siswa berusia minimal 6 tahun pada 1 Juli 2026 (dibuktikan dengan Akta Kelahiran)</li>
+          <li>Fotokopi Kartu Keluarga (KK)</li>
+          <li>Fotokopi Akta Kelahiran</li>
+          <li>Pas foto berwarna terbaru 3x4 (2 lembar)</li>
+          <li>Fotokopi Kartu Indonesia Pintar (KIP), jika ada</li>
+        </ul>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">SD Negeri Bangunjiwo</p>
+        <p class="footer-text">Jl. Raya Bangunjiwo, Kasihan, Bantul,<br>Daerah Istimewa Yogyakarta 55184</p>
+        <div class="social-links">
+          <a href="https://instagram.com/sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+          <a href="https://youtube.com/@sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+          <a href="mailto:sdnbangunjiwo@contoh.sch.id" aria-label="Email">✉</a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-title">Tautan Cepat</p>
+        <p class="footer-text"><a href="index.html">Beranda</a><br><a href="prestasi.html">Prestasi</a><br><a href="berita.html">Berita Sekolah</a><br><a href="spmb.html">SPMB Online</a></p>
+      </div>
+      <div>
+        <p class="footer-title">Kontak</p>
+        <p class="footer-text">✉ sdnbangunjiwo@contoh.sch.id<br>💬 +62 812-3456-7890<br>🕐 Senin–Sabtu, 07.00–14.00 WIB</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span class="current-year"></span> SD Negeri Bangunjiwo. Seluruh hak cipta dilindungi.</div>
+  </footer>
+ 
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

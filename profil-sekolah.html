@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SD Negeri Bangunjiwo | Profil Sekolah</title>
+<meta name="description" content="Profil resmi SD Negeri Bangunjiwo, Bantul, Yogyakarta.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('sdnb-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  /* Style Konten Profil */
+  .page-header {
+    background: #1D3557;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .content-section {
+    padding: 50px 20px 70px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Scroll-margin supaya heading tidak tertutup sticky navbar saat dituju via link */
+  .content-section h2,
+  .content-section h3 {
+    scroll-margin-top: 110px;
+  }
+
+  .card-box {
+    background: var(--surface);
+    padding: 28px 30px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* ===== Poin Sejarah dengan ikon ===== */
+  .history-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 18px;
+  }
+
+  .history-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .history-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #E4FBF2;
+    color: #06D6A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .history-icon svg { width: 22px; height: 22px; }
+
+  .history-point strong {
+    display: block;
+    color: var(--ink);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .history-point p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--gray);
+  }
+
+  .map-embed {
+    margin-top: 14px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    display: block;
+  }
+
+  /* ===== Banner VISI ===== */
+  .visi-banner {
+    margin-top: 28px;
+    background: linear-gradient(135deg, #1D3557, #2A9D8F);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 30px;
+    text-align: center;
+    box-shadow: 0 14px 34px rgba(29, 53, 87, 0.25);
+  }
+
+  .visi-label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: #FFD166;
+    margin: 0 0 12px;
+  }
+
+  .visi-text {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin: 0 0 10px;
+  }
+
+  .visi-sub {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 1rem;
+  }
+
+  /* ===== Grid MISI (5 kartu ber-ikon) ===== */
+  .section-heading {
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    color: var(--ink);
+    margin: 50px 0 8px;
+  }
+
+  .section-heading-sub {
+    text-align: center;
+    color: var(--gray);
+    margin: 0 0 30px;
+  }
+
+  .misi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+  }
+
+  .misi-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 26px 22px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .misi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 26px rgba(29, 53, 87, 0.12);
+  }
+
+  .misi-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .misi-icon svg { width: 26px; height: 26px; }
+
+  .misi-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+
+  .misi-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--gray);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HEADER & NAVIGASI ===================== -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><img src="logo-sdn.jpeg" alt="Logo SD Negeri Bangunjiwo"></div>
+        <div class="brand-text">
+          SD NEGERI BANGUNJIWO
+          <small>Tegalrejo, Bangunjiwo, Kasihan, Bantul, Daerah Istimewa Yogyakarta</small>
+        </div>
+      </a>
+    
+      <!-- Menu Desktop -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item">Beranda</a></li>
+        
+        <!-- Dropdown Tentang -->
+        <li class="dropdown">  
+          <a href="#" class="nav-item active">Tentang <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="profil-sekolah.html" class="active">🏫 Profil Sekolah</a>
+            <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+            <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+          </div>
+        </li>
+        
+        <!-- Dropdown Program Sekolah -->
+        <li class="dropdown">
+          <a href="#" class="nav-item">Program Sekolah <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="program-1.html">📘 Program Akademik Unggulan</a>
+            <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+          </div>
+        </li>
+        <li><a href="prestasi.html" class="nav-item">Prestasi</a></li>
+        <li><a href="berita.html" class="nav-item">Berita</a></li>
+        <li><a href="spmb.html" class="nav-item">SPMB</a></li>
+      </ul>
+
+      <!-- Tombol Hamburger (mobile) -->
+      <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti mode gelap/terang" title="Ganti mode gelap/terang">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Beranda</a>
+      
+      <!-- Dropdown Mobile: Tentang -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Tentang <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="profil-sekolah.html" class="active">🏫 Profil Sekolah</a>
+        <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+      </div>
+
+      <!-- Dropdown Mobile: Program Sekolah -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Program Sekolah <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="program-1.html">📘 Program Akademik Unggulan</a>
+        <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+      </div>
+
+      <a href="prestasi.html">Prestasi</a>
+      <a href="berita.html">Berita</a>
+      <a href="spmb.html">SPMB</a>
+    </nav>
+  </header>
+
+  <!-- ===================== KONTEN PROFIL SEKOLAH ===================== -->
+  <div class="page-header">
+    <h1>Profil Sekolah</h1>
+    <p>Mengenal Lebih Dekat SD Negeri Bangunjiwo</p>
+  </div>
+
+  <main class="content-section">
+    <div class="card-box">
+      <h2>Sejarah Singkat</h2>
+      <h3 style="margin-top:16px; margin-bottom:4px;">Detail Sejarah & Perkembangan Penggabungan Sekolah</h3>
+
+      <div class="history-points">
+        <div class="history-point">
+          <div class="history-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M2 8v8l10 5 10-5V8"/></svg>
+          </div>
+          <div>
+            <strong>Penggabungan Sekolah</strong>
+            <p>SD Negeri Bangunjiwo didirikan melalui proses regrouping atau peleburan dua sekolah dasar di wilayah Bangunjiwo, yaitu SD Sribitan II dan SD Bangunjiwo.</p>
+          </div>
+        </div>
+
+        <div class="history-point">
+          <div class="history-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div>
+            <strong>Perayaan HUT</strong>
+            <p>Sekolah ini merayakan Hari Ulang Tahun (HUT) ke-15 pada bulan Agustus 2022, yang berarti SD Negeri Bangunjiwo resmi berdiri sebagai hasil penggabungan pada sekitar tahun 2007.</p>
+          </div>
+        </div>
+
+        <div class="history-point">
+          <div class="history-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div>
+            <strong>Lokasi</strong>
+            <p>Sekolah ini terletak di Tegalrejo, Kalurahan Bangunjiwo, Kapanewon Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⚠️ GANTI query pada URL di bawah dengan alamat sekolah persis, atau tempel link "Bagikan > Sematkan peta" dari Google Maps -->
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=SD+Negeri+Bangunjiwo,+Tegalrejo,+Bangunjiwo,+Kasihan,+Bantul&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi SD Negeri Bangunjiwo di Google Maps">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- ===== VISI (banner terpisah, menonjol) ===== -->
+    <div class="visi-banner">
+      <p class="visi-label">VISI SEKOLAH</p>
+      <h2 class="visi-text">"BERGAYA PRIMA"</h2>
+      <p class="visi-sub">(Beragama, Berbudaya, Berprestasi, Bersih, dan Mandiri)</p>
+    </div>
+
+    <!-- ===== MISI (grid 5 kartu ber-ikon) ===== -->
+    <h2 class="section-heading">Misi Sekolah</h2>
+    <p class="section-heading-sub">Lima pilar utama yang menjabarkan Visi "BERGAYA PRIMA"</p>
+
+    <div class="misi-grid">
+      <div class="misi-card">
+        <div class="misi-icon" style="background:#FFF3D6; color:#D97706;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>1. Beragama</h3>
+        <p>Melaksanakan kehidupan beragama yang taat, serta menumbuhkan iman dan takwa (IMTAQ) siswa melalui pembiasaan ibadah di sekolah.</p>
+      </div>
+
+      <div class="misi-card">
+        <div class="misi-icon" style="background:#FCE7F3; color:#DB2777;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c1 0 2-.8 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.2 0-1 .8-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.4-4.5-8-10-8z"/></svg>
+        </div>
+        <h3>2. Berbudaya</h3>
+        <p>Melestarikan nilai-nilai budaya lokal dan nasional, diwujudkan melalui muatan lokal Bahasa Jawa dan seni membatik.</p>
+      </div>
+
+      <div class="misi-card">
+        <div class="misi-icon" style="background:#E0F2FE; color:#0284C7;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a2 2 0 0 1-2 4M7 5H4a2 2 0 0 0 2 4"/></svg>
+        </div>
+        <h3>3. Berprestasi</h3>
+        <p>Menyelenggarakan pembelajaran optimal demi mendorong prestasi siswa, baik akademik maupun nonakademik (hockey, karawitan, seni tari, drumband).</p>
+      </div>
+
+      <div class="misi-card">
+        <div class="misi-icon" style="background:#E4FBF2; color:#06D6A0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>4. Bersih</h3>
+        <p>Mewujudkan lingkungan sekolah yang bersih, sehat, rindang, dan nyaman untuk mendukung aktivitas belajar-mengajar.</p>
+      </div>
+
+      <div class="misi-card">
+        <div class="misi-icon" style="background:#EDE9FE; color:#7C3AED;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.4-6.4 2 2-6.4 6.4-2z"/></svg>
+        </div>
+        <h3>5. Mandiri</h3>
+        <p>Membentuk karakter peserta didik yang mandiri, kreatif, dan bernalar kritis sesuai Profil Pelajar Pancasila melalui ekstrakurikuler dan kegiatan P5.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">SD Negeri Bangunjiwo</p>
+        <p class="footer-text">
+          Jl. Raya Bangunjiwo, Kasihan, Bantul,<br>
+          Daerah Istimewa Yogyakarta 55184
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+          <a href="https://youtube.com/@sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+          <a href="mailto:sdnbangunjiwo@contoh.sch.id" aria-label="Email">✉</a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-title">Tautan Cepat</p>
+        <p class="footer-text">
+          <a href="index.html">Beranda</a><br>
+          <a href="prestasi.html">Prestasi</a><br>
+          <a href="berita.html">Berita Sekolah</a><br>
+          <a href="spmb.html">SPMB Online</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-title">Kontak</p>
+        <p class="footer-text">
+          ✉ sdnbangunjiwo@contoh.sch.id<br>
+          💬 +62 812-3456-7890<br>
+          🕐 Senin–Sabtu, 07.00–14.00 WIB
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span class="current-year"></span> SD Negeri Bangunjiwo. Seluruh hak cipta dilindungi.
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

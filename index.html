@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SD Negeri Bangunjiwo | Beranda</title>
+<meta name="description" content="Website resmi SD Negeri Bangunjiwo, Bantul, Yogyakarta.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('sdnb-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+  <!-- ===================== HEADER & NAVIGASI ===================== -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><img src="logo-sdn.jpeg" alt="Logo SD Negeri Bangunjiwo"></div>
+        <div class="brand-text">
+          SD NEGERI BANGUNJIWO
+          <small>Tegalrejo, Bangunjiwo, Kasihan, Bantul, Daerah Istimewa Yogyakarta</small>
+        </div>
+      </a>
+    
+      <!-- Menu Desktop -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item active">Beranda</a></li>
+        
+        <!-- Dropdown Tentang -->
+        <li class="dropdown">  
+          <a href="#" class="nav-item">Tentang <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+            <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+            <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+          </div>
+        </li>
+        
+        <!-- Dropdown Program Sekolah -->
+        <li class="dropdown">
+          <a href="#" class="nav-item">Program Sekolah <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="program-1.html">📘 Program Akademik Unggulan</a>
+            <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+          </div>
+        </li>
+        <li><a href="prestasi.html" class="nav-item">Prestasi</a></li>
+        <li><a href="berita.html" class="nav-item">Berita</a></li>
+        <li><a href="spmb.html" class="nav-item">SPMB</a></li>
+      </ul>
+
+      <!-- Tombol Hamburger (mobile) -->
+      <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti mode gelap/terang" title="Ganti mode gelap/terang">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Beranda</a>
+      
+      <!-- Dropdown Mobile: Tentang -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Tentang <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+        <a href="guru-karyawan.html">👨‍🏫 Guru & Karyawan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+      </div>
+
+      <!-- Dropdown Mobile: Program Sekolah -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Program Sekolah <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="program-1.html">📘 Program Akademik Unggulan</a>
+        <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+      </div>
+
+      <a href="prestasi.html">Prestasi</a>
+      <a href="berita.html">Berita</a>
+      <a href="spmb.html">SPMB</a>
+    </nav>
+  </header>
+
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="tentang">
+    <div class="hero-banner reveal">
+      <div class="hero-photo" id="heroPhotoSlider" style="background-image: url('https://placehold.co/1600x900/1D3557/ffffff?text=Foto+SD+Negeri+Bangunjiwo');">
+        <div class="hero-photo-content">
+          <h1>"BERGAYA PRIMA"</h1>
+          <p>
+            SD Negeri Bangunjiwo berkomitmen menghadirkan pembelajaran yang menyenangkan,
+            inovatif, dan membentuk karakter siswa sejak dini. Bergabunglah bersama kami
+            untuk pendidikan yang mendalam, relevan, dan membangun generasi unggul.
+          </p>
+          <div class="hero-photo-buttons">
+            <a href="spmb.html" class="hero-photo-btn">Info SPMB</a>
+            <a href="guru-karyawan.html" class="hero-photo-btn outline">Kenali Guru Kami</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar statistik menyatu di bawah foto -->
+      <div class="hero-stats-bar">
+        <div class="hero-stats-desc">
+          <h3>SD Negeri Favorit di Bantul</h3>
+          <p>
+            SD Negeri Bangunjiwo adalah sekolah dasar negeri di Bantul, Yogyakarta,
+            dengan visi "BERGAYA PRIMA" (Beragama, Berbudaya, Berprestasi, Bersih, dan Mandiri) 
+          </p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="stat-label">Siswa Aktif</p>
+          <p class="stat-value">349</p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="stat-label">Guru & Karyawan</p>
+          <p class="stat-value">22</p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="stat-label">Berdiri Sejak</p>
+          <p class="stat-value">1 Agustus 2007</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SAMBUTAN KEPALA SEKOLAH ===================== -->
+  <section class="section principal-section">
+    <div class="container">
+      <h2 class="section-title reveal">Sambutan Kepala Sekolah</h2>
+      <p class="section-subtitle reveal">Pesan hangat untuk seluruh keluarga besar SD Negeri Bangunjiwo</p>
+
+      <div class="principal-grid reveal">
+        <div class="principal-photo">
+          <img src="https://placehold.co/400x400/FFD166/1D3557?text=Kepala+Sekolah" alt="Foto Kepala Sekolah">
+        </div>
+        <div>
+          <p class="principal-quote">
+            "Selamat datang di SD Negeri Bangunjiwo! Kami percaya setiap anak
+            memiliki potensi luar biasa yang perlu ditemukan dan dikembangkan.
+            Melalui pembelajaran yang menyenangkan dan lingkungan yang hangat,
+            kami berkomitmen membimbing putra-putri Bapak/Ibu menjadi generasi
+            yang cerdas, berkarakter, dan siap menghadapi masa depan."
+          </p>
+          <p class="principal-name">Agus Kuncoro, S.Pd. — Kepala SD Negeri Bangunjiwo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== PROFIL GURU & KARYAWAN ===================== -->
+  <section class="section" id="profil-guru" style="background:var(--section-alt-bg);">
+    <div class="container">
+      <h2 class="section-title reveal">Guru & Karyawan Kami</h2>
+      <p class="section-subtitle reveal">Tim pendidik berdedikasi yang siap membimbing putra-putri Anda</p>
+
+      <div class="carousel-wrap reveal" data-carousel>
+        <button class="carousel-btn prev" aria-label="Sebelumnya">‹</button>
+        <div class="carousel-track" id="teacherTrack">
+          <!-- Kartu guru di-render otomatis oleh script.js dari data.js -->
+        </div>
+        <button class="carousel-btn next" aria-label="Berikutnya">›</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== BERITA TERKINI ===================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Berita Terkini</h2>
+      <p class="section-subtitle reveal">Ikuti kabar dan kegiatan terbaru dari SD Negeri Bangunjiwo</p>
+
+      <div class="carousel-wrap reveal" data-carousel>
+        <button class="carousel-btn prev" aria-label="Sebelumnya">‹</button>
+        <div class="carousel-track" id="newsTrack">
+          <!-- Kartu berita di-render otomatis oleh script.js dari data.js -->
+        </div>
+        <button class="carousel-btn next" aria-label="Berikutnya">›</button>
+      </div>
+
+      <div style="text-align:center; margin-top:20px;">
+        <a href="berita.html" class="btn btn-secondary">Lihat Semua Berita</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">SD Negeri Bangunjiwo</p>
+        <p class="footer-text">
+          Tegalrejo, Bangunjiwo, Kec. Kasihan, Bantul,<br>
+          Daerah Istimewa Yogyakarta 55184
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+          <a href="https://youtube.com/@sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+          <a href="mailto:sdnbangunjiwo@contoh.sch.id" aria-label="Email">✉</a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-title">Tautan Cepat</p>
+        <p class="footer-text">
+          <a href="index.html">Beranda</a><br>
+          <a href="prestasi.html">Prestasi</a><br>
+          <a href="berita.html">Berita Sekolah</a><br>
+          <a href="spmb.html">SPMB Online</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-title">Kontak</p>
+        <p class="footer-text">
+          ✉ sdnbangunjiwo@contoh.sch.id<br>
+          💬 +62 812-3456-7890<br>
+          🕐 Senin–Jumat, 07.00–14.30 WIB
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span class="current-year"></span> SD Negeri Bangunjiwo. Seluruh hak cipta dilindungi.
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

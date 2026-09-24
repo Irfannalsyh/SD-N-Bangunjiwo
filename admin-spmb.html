@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Rekap SPMB | SD Negeri Bangunjiwo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('sdnb-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><img src="logo-sdn.jpeg" alt="Logo SD Negeri Bangunjiwo"></div>
+        <div class="brand-text">SD NEGERI BANGUNJIWO<small>Panel Admin SPMB</small></div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="spmb.html" class="nav-item">← Kembali ke Halaman SPMB</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti mode gelap/terang" title="Ganti mode gelap/terang">
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:40px;">
+    <div class="container">
+      <h1 class="section-title" style="text-align:left;">📋 Rekap Pendaftar SPMB</h1>
+      <p style="color:var(--gray); margin-bottom:30px;">
+        Halaman ini khusus untuk guru/panitia SPMB. Data diambil dari penyimpanan lokal browser (localStorage)
+        pada perangkat ini — jadi hanya tersimpan di komputer/browser yang sama dipakai untuk membuka halaman ini.
+      </p>
+
+      <!-- ⚠️ CATATAN PENTING untuk guru -->
+      <div class="info-box" style="margin-bottom:24px;">
+        <strong>⚠️ Penting:</strong> Karena data disimpan di localStorage (bukan database online), data pendaftar
+        <u>hanya muncul di browser & komputer yang sama</u> dengan yang dipakai calon wali murid mendaftar.
+        Untuk penggunaan sungguhan, disarankan menambahkan backend/database (misalnya Google Sheets API atau
+        Firebase) supaya data dari berbagai perangkat bisa terkumpul di satu tempat. Sambil itu, gunakan tombol
+        <strong>Export CSV</strong> secara rutin untuk mem-backup data.
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="text" id="adminSearch" placeholder="🔍 Cari nama calon siswa...">
+        <button id="exportCsvBtn" class="btn btn-primary btn-export">⬇ Export Data ke CSV / Excel</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Nama Calon Siswa</th>
+              <th>NIK</th>
+              <th>Tempat, Tgl Lahir</th>
+              <th>Nama Orang Tua</th>
+              <th>No. HP/WA</th>
+              <th>Alamat</th>
+              <th>Waktu Daftar</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- Baris data di-render otomatis oleh script.js -->
+          </tbody>
+        </table>
+        <p id="adminEmptyState" style="text-align:center; padding:30px; color:var(--gray); display:none;">
+          Belum ada pendaftar SPMB yang masuk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guru & Karyawan | SD Negeri Bangunjiwo</title>
+<meta name="description" content="Daftar Guru dan Staf Karyawan SD Negeri Bangunjiwo, Bantul, Yogyakarta.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('sdnb-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  /* ================= GRID TAMPILAN GURU & KARYAWAN ================= */
+  /* Foto besar (portrait) + kotak caption putih melayang menumpuk di bawah foto */
+  .teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+    justify-content: center;
+    gap: 64px 28px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .teacher-grid {
+      grid-template-columns: minmax(0, 420px);
+      justify-content: center;
+      gap: 56px;
+    }
+
+    .teacher-card {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+
+  .teacher-card {
+    position: relative;
+  }
+
+  .teacher-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(29, 53, 87, 0.15);
+  }
+
+  .teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .teacher-card:hover .teacher-photo img {
+    transform: scale(1.04);
+  }
+
+  .teacher-caption {
+    position: relative;
+    z-index: 2;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(29, 53, 87, 0.14);
+    padding: 18px 20px;
+    text-align: center;
+    margin: -52px 14px 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .teacher-caption h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+  }
+
+  .teacher-caption p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HEADER & NAVIGASI ===================== -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <div class="brand-logo"><img src="logo-sdn.jpeg" alt="Logo SD Negeri Bangunjiwo"></div>
+        <div class="brand-text">
+          SD NEGERI BANGUNJIWO
+          <small>Tegalrejo, Bangunjiwo, Kasihan, Bantul, Daerah Istimewa Yogyakarta</small>
+        </div>
+      </a>
+    
+      <!-- Menu Desktop -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item">Beranda</a></li>
+        
+        <!-- Dropdown Tentang -->
+        <li class="dropdown">  
+          <a href="#" class="nav-item active">Tentang <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+            <a href="guru-karyawan.html" class="active">👨‍🏫 Guru & Karyawan</a>
+            <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+          </div>
+        </li>
+        
+        <!-- Dropdown Program Sekolah -->
+        <li class="dropdown">
+          <a href="#" class="nav-item">Program Sekolah <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="program-1.html">📘 Program Akademik Unggulan</a>
+            <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+          </div>
+        </li>
+        <li><a href="prestasi.html" class="nav-item">Prestasi</a></li>
+        <li><a href="berita.html" class="nav-item">Berita</a></li>
+        <li><a href="spmb.html" class="nav-item">SPMB</a></li>
+      </ul>
+
+      <!-- Tombol Hamburger (mobile) -->
+      <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti mode gelap/terang" title="Ganti mode gelap/terang">
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav id="mobileMenu" class="mobile-menu">
+      <a href="index.html">Beranda</a>
+      
+      <!-- Dropdown Mobile: Tentang -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Tentang <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="profil-sekolah.html">🏫 Profil Sekolah</a>
+        <a href="guru-karyawan.html" class="active">👨‍🏫 Guru & Karyawan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Sekolah</a>
+      </div>
+
+      <!-- Dropdown Mobile: Program Sekolah -->
+      <button type="button" class="mobile-dropdown-toggle">
+        Program Sekolah <span>▾</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="program-1.html">📘 Program Akademik Unggulan</a>
+        <a href="program-2.html">🎨 Program Ekstrakurikuler</a>
+      </div>
+
+      <a href="prestasi.html">Prestasi</a>
+      <a href="berita.html">Berita</a>
+      <a href="spmb.html">SPMB</a>
+    </nav>
+  </header>
+
+
+  <!-- ===================== KONTEN GURU & KARYAWAN ===================== -->
+  <main style="padding: 60px 20px; max-width: 1100px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h1 style="font-family: 'Fredoka', sans-serif; font-size: 2.5rem; color: var(--ink);">Guru & Karyawan</h1>
+      <p style="color: var(--gray); font-size: 1.1rem; margin-top: 10px;">
+        Mengenal jajaran pendidik dan tenaga kependidikan berdedikasi di SD Negeri Bangunjiwo.
+      </p>
+    </div>
+
+    <!-- Container Grid Tenaga Pendidik -->
+    <div class="teacher-grid" id="teacherGrid">
+      <!-- Data guru akan otomatis diisi lewat JavaScript dari data.js -->
+    </div>
+  </main>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">SD Negeri Bangunjiwo</p>
+        <p class="footer-text">
+          Jl. Raya Bangunjiwo, Kasihan, Bantul,<br>
+          Daerah Istimewa Yogyakarta 55184
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+          <a href="https://youtube.com/@sdnbangunjiwo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+          <a href="mailto:sdnbangunjiwo@contoh.sch.id" aria-label="Email">✉</a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-title">Tautan Cepat</p>
+        <p class="footer-text">
+          <a href="index.html">Beranda</a><br>
+          <a href="prestasi.html">Prestasi</a><br>
+          <a href="berita.html">Berita Sekolah</a><br>
+          <a href="spmb.html">SPMB Online</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-title">Kontak</p>
+        <p class="footer-text">
+          ✉ sdnbangunjiwo@contoh.sch.id<br>
+          💬 +62 812-3456-7890<br>
+          🕐 Senin–Sabtu, 07.00–14.00 WIB
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span class="current-year"></span> SD Negeri Bangunjiwo. Seluruh hak cipta dilindungi.
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
